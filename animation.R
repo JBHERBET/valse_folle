@@ -72,4 +72,6 @@ p <- ggplot(table_coordonnees, aes(x, y)) +
   geom_path() +
   transition_reveal(numero_frame)
 
-p
+animate(plot = p,duration =20)
+
+?animate
