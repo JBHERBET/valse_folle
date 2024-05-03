@@ -60,18 +60,21 @@ angle_degres <- 90 # Angle entre chaque pas
 pas <- c(1, 3, 2)  # Séquence de pas
 n_sequences <- 5  # Nombre de séquences à enchaîner
 
-table_coordonnees <- retourner_coordonnees(110, c(1, 2, 1), 30, 0.9)
+table_coordonnees <- retourner_coordonnees(112, c(1, 3,5,3), 400, 1)
+# table_coordonnees <- retourner_coordonnees(115, c(3,4,3,2,4,3,4,5,4,3,3,1), 800, 1)
+table_coordonnees <- retourner_coordonnees(115, c(3,4,3,2,4,3,4,5,4,3,3,2), 800, 1)
 
 table_coordonnees <- table_coordonnees %>%
   mutate(numero_frame = row_number()) %>% as.data.frame()
 
 
+
 # Créer le plot
 p <- ggplot(table_coordonnees, aes(x, y)) +
   geom_point() +
-  geom_path() +
-  transition_reveal(numero_frame)
+  geom_path(color ="red") +
+  transition_reveal(numero_frame)+
+  theme_minimal()
 
-animate(plot = p,duration =20)
+animate(plot = p,duration =200)
 
-?animate
