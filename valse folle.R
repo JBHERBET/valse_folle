@@ -1,3 +1,4 @@
+rm(list=ls())
 # Chargement de la librairie ggplot2
 library(ggplot2)
 
